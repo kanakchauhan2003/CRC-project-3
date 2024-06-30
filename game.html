@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Game</title>
+  <style>
+    .container .row .col{
+        background-color: aqua;
+    }
+    #b1{
+        background-color: lightgreen;
+
+    }
+    .container .row{
+        background-color:plum;
+    }
+    .card-body{
+        background-color: burlywood;
+    }
+    .text-center{
+        font-style: italic;
+        color: darkgreen;
+    }
+
+ </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="text-center">Welcome To my Game Show</h1>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="dice.webp" height="300px" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Dice</h5>
+            <p class="card-text" id="p1"></p>
+            <center><a href="#" class="btn" id="b1" onclick="dice()">Roll The Dice</a></center>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+            <img src="otp.webp" height="300px" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">OTP</h5>
+            <p class="card-text" id="p2"></p>
+            <center><a href="#" class="btn" id="b1" onclick="otp()">Generate OTP</a></center>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="rpc.webp" height="300px" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Rock Paper Scissor</h5>
+            <p class="card-text" id="p3"></p>
+            <center><a href="#" class="btn" id="b1" onclick="rps(1)">Rock</a>
+            <a href="#" class="btn" id="b1" onclick="rps(2)">Paper</a>
+            <a href="#" class="btn" id="b1" onclick="rps(3)">Scissor</a></center>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+            <img src="atm.webp" height="300px" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">ATM pin generator</h5>
+            <p class="card-text" id="p4"></p>
+            <center><a href="#" class="btn" id="b1" onclick="ATM()">Generate ATM pin</a></center>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+            <img src="secret.webp" height="300px" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">My Secret Code</h5>
+            <p class="card-text" id="p5"></p>
+            <center><a href="#" class="btn" id="b1" onclick="secret()">My secret Code</a></center>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+            <img src="password.webp" height="300px" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Password generator</h5>
+            <p class="card-text" id="p6"></p>
+            <center><a href="#" class="btn" id="b1" onclick="password()">Generate password</a></center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function dice(){
+      let ans = Math.floor(Math.random()*6)+1
+      document.getElementById("p1").innerHTML = ans;
+    }
+    function otp(){
+      let ans = Math.floor(Math.random()*(99999-10000))+10000
+      document.getElementById("p2").innerHTML = ans;
+    }
+    function rps(userInput){
+      let compInput = Math.floor(Math.random()*3)+1
+      if(userInput==compInput){
+        document.getElementById("p3").innerHTML = "Tie"
+      }
+      else if((userInput==1 && compInput==3) || (userInput==2&&compInput==1)||(userInput==3 && compInput==2)){
+        document.getElementById("p3").innerHTML = "User Win"
+      }
+      else{
+        document.getElementById("p3").innerHTML = "Computer Win"
+      }
+    }
+    function ATM() {
+    let num1 = Math.floor(Math.random() * 10);
+    let num2 = Math.floor(Math.random() * 10);
+    let num3 = Math.floor(Math.random() * 10);
+    let num4 = Math.floor(Math.random() * 10);
+    document.getElementById("p4").innerHTML =  num1 + " " + num2 + " " +  num3 + " " + num4;
+}   
+function secret() {
+    let char1 = String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+    let char2 = String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+    let num1 = Math.floor(Math.random() * 10);
+    let num2 = Math.floor(Math.random() * 10);
+    let char3 = String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+    let char4 = String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+    document.getElementById("p5").innerHTML =  char1 + " " + char2 + " " +  num1 + " " + num2 + " " + char3 + " " + char4;
+}
+
+function password() {
+    let char1 = String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+    let num1 = Math.floor(Math.random() * 10);
+    let char2 = String.fromCharCode(Math.floor(Math.random() * (126 - 33 + 1)) + 33); 
+    let char3 = String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+    let num2 = Math.floor(Math.random() * 10);
+    let char4 = String.fromCharCode(Math.floor(Math.random() * (126 - 33 + 1)) + 33);
+    document.getElementById("p6").innerHTML =  char1 + " " + num1 + " " +  char2 + " " + char3 + " " + num2 + " " + char4;
+}
+</script>
+</body>
+</html>
